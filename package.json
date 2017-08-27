@@ -1,5 +1,5 @@
 {
-  "name": "getui",
+  "name": "getui-node-sdk",
   "version": "0.1.1",
   "description": "Node wrapper for getui OS SDK API",
   "main": "index.js",
@@ -19,5 +19,15 @@
     "protobufjs": "^3.8.2",
     "request": "^2.81.0",
     "uuid": "^3.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runfan/getui-node-sdk.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/runfan/getui-node-sdk/issues"
+  },
+  "homepage": "https://github.com/runfan/getui-node-sdk#readme"
 }
