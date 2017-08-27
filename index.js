@@ -1,6 +1,7 @@
 var Promise = require('bluebird');
 
 exports.GeTui = require('./GT.push');
+Promise.promisifyAll(exports.GeTui.prototype);
 exports.Target = require('./getui/Target');
 
 exports.APNTemplate = require('./getui/template/APNTemplate');
@@ -19,4 +20,3 @@ exports.AppMessage = require('./getui/message/AppMessage');
 exports.ListMessage = require('./getui/message/ListMessage');
 exports.GtConfig = require('./GtConfig');
 exports.GtReq = require('./getui/GtReq');
-Promise.promisifyAll(GeTui.prototype);

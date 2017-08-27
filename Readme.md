@@ -1,29 +1,51 @@
 # 说明
   基于个推 nodejs sdk 4.0.1.0 进行 Promise 封装
 
+# 使用bluebird对GeTui进行
+```javascript
+
+    // http的域名
+    var HOST = 'http://sdk.open.api.igexin.com/apiex.htm';
+
+    //https的域名
+    // var HOST = 'https://api.getui.com/apiex.htm';
+
+    //Android用户测试
+    var APPID = '';
+    var APPKEY = '';
+    var MASTERSECRET = '';
+    var CID = '';
+    var gt = new GeTui(HOST, APPKEY, MASTERSECRET);
+    // 使用Promise
+    gt.getUserTagsAsync(APPID, CID).then(function (err, res) {
+        console.log(res);
+    })
+    // 使用callback
+    gt.getUserTags(APPID, CID, function (err, res) {
+        console.log(res);
+    })
+```
 # 快速开始
 
 ```javascript
 
 'use strict';
 
-var GeTui = require('./GT.push');
-var Target = require('./getui/Target');
+var APNTemplate = require('./index').APNTemplate;
+var BaseTemplate = require('./index').BaseTemplate;
+var APNPayload = require('./index').APNPayload;
+var DictionaryAlertMsg = require('./index').DictionaryAlertMsg;
+var SimpleAlertMsg = require('./index').SimpleAlertMsg;
+var NotyPopLoadTemplate = require('./index').NotyPopLoadTemplate;
+var LinkTemplate = require('./index').LinkTemplate;
+var NotificationTemplate = require('./index').NotificationTemplate;
+var PopupTransmissionTemplate = require('./index').PopupTransmissionTemplate;
+var TransmissionTemplate = require('./index').TransmissionTemplate;
 
-var APNTemplate = require('./getui/template/APNTemplate');
-var BaseTemplate = require('./getui/template/BaseTemplate');
-var APNPayload = require('./payload/APNPayload');
-var DictionaryAlertMsg = require('./payload/DictionaryAlertMsg');
-var SimpleAlertMsg = require('./payload/SimpleAlertMsg');
-var NotyPopLoadTemplate = require('./getui/template/NotyPopLoadTemplate');
-var LinkTemplate = require('./getui/template/LinkTemplate');
-var NotificationTemplate = require('./getui/template/NotificationTemplate');
-var PopupTransmissionTemplate = require('./getui/template/PopupTransmissionTemplate');
-var TransmissionTemplate = require('./getui/template/TransmissionTemplate');
+var SingleMessage = require('./index').SingleMessage;
+var AppMessage = require('./index').AppMessage;
+var ListMessage = require('./index').ListMessage;
 
-var SingleMessage = require('./getui/message/SingleMessage');
-var AppMessage = require('./getui/message/AppMessage');
-var ListMessage = require('./getui/message/ListMessage');
 
 // http的域名
 var HOST = 'http://sdk.open.api.igexin.com/apiex.htm';

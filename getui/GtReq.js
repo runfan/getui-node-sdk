@@ -1,4 +1,6 @@
-module.exports = require("protobufjs").newBuilder({})["import"]({
+var protobufjs = require('protobufjs');
+
+module.exports = protobufjs.newBuilder({})["import"]({
     "package": "GtReq",
     "messages": [
         {
