@@ -1,7 +1,8 @@
 # 说明
   Node wrapper for getui OS SDK API
   基于个推 nodejs sdk 4.0.1.0 进行 Promise 封装
-
+# api
+ [个推官方文档](http://docs.getui.com/server/nodejs/start/)
 # 使用 bluebird 对 GeTui 进行 Promise 封装
 ```javascript
 
