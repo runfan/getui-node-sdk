@@ -1,7 +1,8 @@
 # 说明
+  Node wrapper for getui OS SDK API
   基于个推 nodejs sdk 4.0.1.0 进行 Promise 封装
 
-# 使用bluebird对GeTui进行
+# 使用 bluebird 对 GeTui 进行 Promise 封装
 ```javascript
 
     // http的域名
@@ -26,25 +27,28 @@
     })
 ```
 # 快速开始
-
+```shell
+    npm install getui-node-sdk
+    var getui = require('getui-node-sdk')
+```
 ```javascript
 
 'use strict';
 
-var APNTemplate = require('./index').APNTemplate;
-var BaseTemplate = require('./index').BaseTemplate;
-var APNPayload = require('./index').APNPayload;
-var DictionaryAlertMsg = require('./index').DictionaryAlertMsg;
-var SimpleAlertMsg = require('./index').SimpleAlertMsg;
-var NotyPopLoadTemplate = require('./index').NotyPopLoadTemplate;
-var LinkTemplate = require('./index').LinkTemplate;
-var NotificationTemplate = require('./index').NotificationTemplate;
-var PopupTransmissionTemplate = require('./index').PopupTransmissionTemplate;
-var TransmissionTemplate = require('./index').TransmissionTemplate;
+var APNTemplate = require('getui-node-sdk').APNTemplate;
+var BaseTemplate = require('getui-node-sdk').BaseTemplate;
+var APNPayload = require('getui-node-sdk').APNPayload;
+var DictionaryAlertMsg = require('getui-node-sdk').DictionaryAlertMsg;
+var SimpleAlertMsg = require('getui-node-sdk').SimpleAlertMsg;
+var NotyPopLoadTemplate = require('getui-node-sdk').NotyPopLoadTemplate;
+var LinkTemplate = require('getui-node-sdk').LinkTemplate;
+var NotificationTemplate = require('getui-node-sdk').NotificationTemplate;
+var PopupTransmissionTemplate = require('getui-node-sdk').PopupTransmissionTemplate;
+var TransmissionTemplate = require('getui-node-sdk').TransmissionTemplate;
 
-var SingleMessage = require('./index').SingleMessage;
-var AppMessage = require('./index').AppMessage;
-var ListMessage = require('./index').ListMessage;
+var SingleMessage = require('getui-node-sdk').SingleMessage;
+var AppMessage = require('getui-node-sdk').AppMessage;
+var ListMessage = require('getui-node-sdk').ListMessage;
 
 
 // http的域名
