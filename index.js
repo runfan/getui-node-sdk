@@ -1,19 +1,22 @@
-var GeTui = require('./GT.push');
-var Target = require('./getui/Target');
+var Promise = require('bluebird');
 
-var APNTemplate = require('./getui/template/APNTemplate');
-var BaseTemplate = require('./getui/template/BaseTemplate');
-var APNPayload = require('./payload/APNPayload');
-var DictionaryAlertMsg = require('./payload/DictionaryAlertMsg');
-var SimpleAlertMsg = require('./payload/SimpleAlertMsg');
-var NotyPopLoadTemplate = require('./getui/template/NotyPopLoadTemplate');
-var LinkTemplate = require('./getui/template/LinkTemplate');
-var NotificationTemplate = require('./getui/template/NotificationTemplate');
-var PopupTransmissionTemplate = require('./getui/template/PopupTransmissionTemplate');
-var TransmissionTemplate = require('./getui/template/TransmissionTemplate');
+exports.GeTui = require('./GT.push');
+exports.Target = require('./getui/Target');
 
-var SingleMessage = require('./getui/message/SingleMessage');
-var AppMessage = require('./getui/message/AppMessage');
-var ListMessage = require('./getui/message/ListMessage');
-var GtConfig = require('./GtConfig');
-var GtReq = require('./getui/GtReq');
+exports.APNTemplate = require('./getui/template/APNTemplate');
+exports.BaseTemplate = require('./getui/template/BaseTemplate');
+exports.APNPayload = require('./payload/APNPayload');
+exports.DictionaryAlertMsg = require('./payload/DictionaryAlertMsg');
+exports.SimpleAlertMsg = require('./payload/SimpleAlertMsg');
+exports.NotyPopLoadTemplate = require('./getui/template/NotyPopLoadTemplate');
+exports.LinkTemplate = require('./getui/template/LinkTemplate');
+exports.NotificationTemplate = require('./getui/template/NotificationTemplate');
+exports.PopupTransmissionTemplate = require('./getui/template/PopupTransmissionTemplate');
+exports.TransmissionTemplate = require('./getui/template/TransmissionTemplate');
+
+exports.SingleMessage = require('./getui/message/SingleMessage');
+exports.AppMessage = require('./getui/message/AppMessage');
+exports.ListMessage = require('./getui/message/ListMessage');
+exports.GtConfig = require('./GtConfig');
+exports.GtReq = require('./getui/GtReq');
+Promise.promisifyAll(GeTui.prototype);
