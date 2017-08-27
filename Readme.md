@@ -29,28 +29,51 @@
 # 快速开始
 ```shell
     npm install getui-node-sdk
-    var getui = require('getui-node-sdk')
+```
+```javascript
+    'use strict';
+    const {
+        // basic
+        GeTui,
+        Target,
+        // template
+        APNTemplate,
+        BaseTemplate,
+        NotyPopLoadTemplate,
+        LinkTemplate,
+        NotificationTemplate,
+        PopupTransmissionTemplate,
+        TransmissionTemplate,
+        // payload
+        APNPayload,
+        DictionaryAlertMsg,
+        SimpleAlertMsg,
+        // message
+        SingleMessage,
+        AppMessage,
+        ListMessage,
+    }=require('getui-node-sdk')
 ```
 ```javascript
 
 'use strict';
+var getuiNodeSdk = require('getui-node-sdk');
+var GeTui = getuiNodeSdk.GeTui;
+var Target = getuiNodeSdk.Target;
+var APNTemplate = getuiNodeSdk.APNTemplate;
+var BaseTemplate = getuiNodeSdk.BaseTemplate;
+var APNPayload = getuiNodeSdk.APNPayload;
+var DictionaryAlertMsg = getuiNodeSdk.DictionaryAlertMsg;
+var SimpleAlertMsg = getuiNodeSdk.SimpleAlertMsg;
+var NotyPopLoadTemplate = getuiNodeSdk.NotyPopLoadTemplate;
+var LinkTemplate = getuiNodeSdk.LinkTemplate;
+var NotificationTemplate = getuiNodeSdk.NotificationTemplate;
+var PopupTransmissionTemplate = getuiNodeSdk.PopupTransmissionTemplate;
+var TransmissionTemplate = getuiNodeSdk.TransmissionTemplate;
 
-var GeTui = require('./index').GeTui;
-var Target = require('./index').Target;
-var APNTemplate = require('getui-node-sdk').APNTemplate;
-var BaseTemplate = require('getui-node-sdk').BaseTemplate;
-var APNPayload = require('getui-node-sdk').APNPayload;
-var DictionaryAlertMsg = require('getui-node-sdk').DictionaryAlertMsg;
-var SimpleAlertMsg = require('getui-node-sdk').SimpleAlertMsg;
-var NotyPopLoadTemplate = require('getui-node-sdk').NotyPopLoadTemplate;
-var LinkTemplate = require('getui-node-sdk').LinkTemplate;
-var NotificationTemplate = require('getui-node-sdk').NotificationTemplate;
-var PopupTransmissionTemplate = require('getui-node-sdk').PopupTransmissionTemplate;
-var TransmissionTemplate = require('getui-node-sdk').TransmissionTemplate;
-
-var SingleMessage = require('getui-node-sdk').SingleMessage;
-var AppMessage = require('getui-node-sdk').AppMessage;
-var ListMessage = require('getui-node-sdk').ListMessage;
+var SingleMessage = getuiNodeSdk.SingleMessage;
+var AppMessage = getuiNodeSdk.AppMessage;
+var ListMessage = getuiNodeSdk.ListMessage;
 
 
 // http的域名
