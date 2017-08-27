@@ -35,6 +35,8 @@
 
 'use strict';
 
+var GeTui = require('./index').GeTui;
+var Target = require('./index').Target;
 var APNTemplate = require('getui-node-sdk').APNTemplate;
 var BaseTemplate = require('getui-node-sdk').BaseTemplate;
 var APNPayload = require('getui-node-sdk').APNPayload;
