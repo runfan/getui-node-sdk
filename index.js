@@ -1,22 +1,23 @@
 var Promise = require('bluebird');
+var GeTui = require('./GT.push');
+module.exports = GeTui;
+Promise.promisifyAll(GeTui.prototype);
 
-exports.GeTui = require('./GT.push');
-Promise.promisifyAll(exports.GeTui.prototype);
-exports.Target = require('./getui/Target');
+module.exports.Target = require('./getui/Target');
 
-exports.APNTemplate = require('./getui/template/APNTemplate');
-exports.BaseTemplate = require('./getui/template/BaseTemplate');
-exports.APNPayload = require('./payload/APNPayload');
-exports.DictionaryAlertMsg = require('./payload/DictionaryAlertMsg');
-exports.SimpleAlertMsg = require('./payload/SimpleAlertMsg');
-exports.NotyPopLoadTemplate = require('./getui/template/NotyPopLoadTemplate');
-exports.LinkTemplate = require('./getui/template/LinkTemplate');
-exports.NotificationTemplate = require('./getui/template/NotificationTemplate');
-exports.PopupTransmissionTemplate = require('./getui/template/PopupTransmissionTemplate');
-exports.TransmissionTemplate = require('./getui/template/TransmissionTemplate');
+module.exports.APNTemplate = require('./getui/template/APNTemplate');
+module.exports.BaseTemplate = require('./getui/template/BaseTemplate');
+module.exports.APNPayload = require('./payload/APNPayload');
+module.exports.DictionaryAlertMsg = require('./payload/DictionaryAlertMsg');
+module.exports.SimpleAlertMsg = require('./payload/SimpleAlertMsg');
+module.exports.NotyPopLoadTemplate = require('./getui/template/NotyPopLoadTemplate');
+module.exports.LinkTemplate = require('./getui/template/LinkTemplate');
+module.exports.NotificationTemplate = require('./getui/template/NotificationTemplate');
+module.exports.PopupTransmissionTemplate = require('./getui/template/PopupTransmissionTemplate');
+module.exports.TransmissionTemplate = require('./getui/template/TransmissionTemplate');
 
-exports.SingleMessage = require('./getui/message/SingleMessage');
-exports.AppMessage = require('./getui/message/AppMessage');
-exports.ListMessage = require('./getui/message/ListMessage');
-exports.GtConfig = require('./GtConfig');
-exports.GtReq = require('./getui/GtReq');
+module.exports.SingleMessage = require('./getui/message/SingleMessage');
+module.exports.AppMessage = require('./getui/message/AppMessage');
+module.exports.ListMessage = require('./getui/message/ListMessage');
+module.exports.GtConfig = require('./GtConfig');
+module.exports.GtReq = require('./getui/GtReq');

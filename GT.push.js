@@ -24,9 +24,6 @@ class GeTui {
         }
         var mint = 60000;
 
-        for (var idx in hosts) {
-            requestHead(hosts[idx]);
-        }
         function requestHead(host) {
             var s = Date.now();
             try {
@@ -34,7 +31,7 @@ class GeTui {
                     method: 'head',
                     uri: host,
                     rejectUnauthorized: false
-                }, function (err, res, data) {
+                }, (err, res, data) => {
                     if (!err && res.statusCode == 200) {
                         var diff = Date.now() - s;
                         if (diff < mint) {
@@ -46,6 +43,9 @@ class GeTui {
             } catch (e) {
                 console.log(e);
             }
+        }
+        for (var idx in hosts) {
+            requestHead(hosts[idx]);
         }
     }
 
@@ -63,25 +63,22 @@ class GeTui {
             this._appkey = appkey;
             this._masterSecret = masterSecret;
             this._host = host;
-            var _this = this;
-
             if (this._serviceMap[this._appkey] == null) {
                 // 第一次，启动定时检测
-                this.getOSPushDomainUrlList( (err, resp) => {
+                this.getOSPushDomainUrlList((err, resp) => {
                     if (resp != null && resp["result"] == "ok" && resp["osList"].length > 0) {
-                        this._serviceMap[_this._appkey] = resp["osList"];
-                        _this.inspect(_this);
+                        this._serviceMap[this._appkey] = resp["osList"];
+                        this.inspect(this);
                     }
                 });
             }
             this._instance[appkey] = this;
         }
-
     }
 
-    inspect(_this) {
+    inspect() {
         // 间隔时间执行
-        setInterval(function () { getFaster(_this); }, GtConfig.getHttpInspectInterval());
+        setInterval(() => { this.getFaster(); }, GtConfig.getHttpInspectInterval());
     };
 
     getOSPushDomainUrlList(callback) {
@@ -116,7 +113,7 @@ class GeTui {
             timeStamp: timeStamp,
             sign: sign
         };
-        httpManager.post(this._host, postData, false, function (err, data) {  //返回一个JSON格式的数据
+        httpManager.post(this._host, postData, false, (err, data) => {  //返回一个JSON格式的数据
             callback && callback(err, data && 'success' === data.result);
         });
     };

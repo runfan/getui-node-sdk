@@ -15,7 +15,6 @@ var httpManager = {
     post(host, postData, needGzip, callback) {
         postData.version = GtConfig.getSDKVersion();
         var tries = GtConfig.getHttpTryCount(); // 最大重连次数
-        attempt(host, tries);
         function attempt(ho, times) {
             var options = {
                 uri: ho,
@@ -42,7 +41,7 @@ var httpManager = {
             }
             request(
                 options,
-                function (err, res, data) {
+                (err, res, data) => {
                     if (!err && res.statusCode == 200) {
                         //console.log("what? got res:" + util.inspect(data));
                         if (typeof data == 'string') {
@@ -58,6 +57,7 @@ var httpManager = {
                     }
                 });
         }
+        attempt(host, tries);
     }
 };
 
