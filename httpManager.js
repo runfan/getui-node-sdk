@@ -12,34 +12,34 @@ var httpManager = {
      * @param callback
      * @return json数据
      */
-    post: function (host, postData, needGzip, callback) {
+    post(host, postData, needGzip, callback) {
         postData.version = GtConfig.getSDKVersion();
-		var tries = GtConfig.getHttpTryCount(); // 最大重连次数
+        var tries = GtConfig.getHttpTryCount(); // 最大重连次数
         attempt(host, tries);
         function attempt(ho, times) {
-			var options = {
-				uri: ho,
-				method: 'post',
-				timeout: GtConfig.getHttpSoTimeOut(),
-				rejectUnauthorized: false,
-				headers: {
-					'Content-Type': 'text/html;charset=UTF-8',
-					'User-Agent': 'Getui nodejs',
-					'Accept': '*/*'
-				}
-			};
-			if (needGzip) {
-				options.gzip = true;
-				options.headers['Content-Encoding'] = 'gzip';
-				postData = zlib.gzipSync(JSON.stringify(postData));
-			} else {
-				options.json = true;
-			}
-			options.body = postData;
-			var action = postData['action'];
-			if (action != null && action.length > 0) {
-				options.headers['Gt-Action'] = action;
-			}
+            var options = {
+                uri: ho,
+                method: 'post',
+                timeout: GtConfig.getHttpSoTimeOut(),
+                rejectUnauthorized: false,
+                headers: {
+                    'Content-Type': 'text/html;charset=UTF-8',
+                    'User-Agent': 'Getui nodejs',
+                    'Accept': '*/*'
+                }
+            };
+            if (needGzip) {
+                options.gzip = true;
+                options.headers['Content-Encoding'] = 'gzip';
+                postData = zlib.gzipSync(JSON.stringify(postData));
+            } else {
+                options.json = true;
+            }
+            options.body = postData;
+            var action = postData['action'];
+            if (action != null && action.length > 0) {
+                options.headers['Gt-Action'] = action;
+            }
             request(
                 options,
                 function (err, res, data) {

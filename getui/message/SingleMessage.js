@@ -1,12 +1,9 @@
 'use strict';
 
-var util = require('util');
 var Message = require('./Message');
 
-function SingleMessage(options) {
-    Message.call(this, options);
-}
+class SingleMessage extends Message {
 
-util.inherits(SingleMessage, Message);
+}
 
 module.exports = SingleMessage;

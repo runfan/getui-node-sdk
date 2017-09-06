@@ -1,13 +1,9 @@
-/**
- * Created by Administrator on 2015/5/15.
- */
+'use strict';
 
-function Payload() {
-
+class Payload {
+    getPayload() {
+        return null;
+    }
 }
-
-Payload.prototype.getPayload = function () {
-    return null;
-};
 
 module.exports = Payload;

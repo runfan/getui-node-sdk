@@ -1,3 +1,4 @@
+'use strict';
 var crypto = require('crypto');
 var uuid = require('uuid')
 exports.md5 = function(text) {
