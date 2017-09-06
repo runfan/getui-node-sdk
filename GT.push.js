@@ -24,7 +24,7 @@ class GeTui {
         }
         var mint = 60000;
 
-        function requestHead(host) {
+        var requestHead = (host) => {
             var s = Date.now();
             try {
                 request({
@@ -153,13 +153,12 @@ class GeTui {
     };
 
     httpPostJson(host, postData, needGzip, callback) {
-        var _this = this;
         postData.version = GtConfig.getSDKVersion();
-        httpManager.post(host, postData, needGzip, function (err, response) {
+        httpManager.post(host, postData, needGzip, (err, response) => {
             //        console.log("httpPostJson get:" + response.result);
             if (response && response.result == "sign_error") {
                 //            console.log("holy shit, get sign_error from server");
-                _this.connect(function (err, result) {
+                this.connect((err, result) => {
                     if (result == true) {
                         //console.log("connect success.");
                         //                    console.log("so retry", host, postData);
@@ -171,8 +170,8 @@ class GeTui {
             } else if (response && response.result == "domain_error") {
                 //            console.log("get domain_error from server");
                 this._serviceMap[this._appkey] = response['osList'];
-                _this.host = response['osList'][0];
-                httpManager.post(_this._host, postData, needGzip, callback);
+                this.host = response['osList'][0];
+                httpManager.post(this._host, postData, needGzip, callback);
             } else {
                 //          console.log(postData.action + ", response is null");
                 if (response == null && postData.requestId != null) {
@@ -221,7 +220,7 @@ class GeTui {
             postData.tagList = message.getTagList();
             postData.speed = message.getSpeed();
         }
-        this.httpPostJson(this._host, postData, false, function (err, response) {
+        this.httpPostJson(this._host, postData, false,  (err, response) => {
             if (!err && response.result === 'ok' && response.contentId) {
                 callback && callback(null, response.contentId);
             } else {
@@ -244,11 +243,11 @@ class GeTui {
             appkey: this._appkey,
             contentId: contentId
         };
-        this.httpPostJson(this._host, postData, false, function (err, response) {
+        this.httpPostJson(this._host, postData, false, (err, response) => {
             if (!err && 'ok' === response.result) {
                 callback && callback(null, true);
             } else {
-                callback && callback(new Error('host:[' + host + ']' + '取消contentId失败'), false);
+                callback && callback(new Error('host:[' + this._host + ']' + '取消contentId失败'), false);
             }
         });
 
@@ -271,7 +270,7 @@ class GeTui {
             appkey: this._appkey,
             contentId: contentId
         };
-        this.httpPostJson(this._host, postData, false, function (err, response) {
+        this.httpPostJson(this._host, postData, false, (err, response) => {
             if (!err && 'ok' === response.result) {
                 callback && callback(null, true);
             } else {
@@ -350,16 +349,15 @@ class GeTui {
             callback = taskGroupName;
             taskGroupName = null;
         }
-        var _this = this;
-        this.getContentId(message, taskGroupName, function (err, contentId) {
+        this.getContentId(message, taskGroupName, (err, contentId) => {
             if (!err) {
                 var postData = {
                     action: 'pushMessageToAppAction',
-                    appkey: _this._appkey,
+                    appkey: this._appkey,
                     type: 2,
                     contentId: contentId
                 };
-                _this.httpPostJson(_this._host, postData, false, callback);
+                this.httpPostJson(this._host, postData, false, callback);
             } else {
                 callback(err, null);
             }
@@ -387,7 +385,7 @@ class GeTui {
     };
 
     pushAPNMessageToList(appId, contentId, deviceTokenList, callback) {
-        deviceTokenList.forEach(function (deviceToken) {
+        deviceTokenList.forEach((deviceToken) => {
             if (deviceToken.length !== 64) {
                 throw new TypeError('deviceToken length must be 64');
             }
@@ -412,7 +410,7 @@ class GeTui {
             appId: appId,
             PI: message.getData().getPushInfo().toBase64()
         };
-        this.httpPostJson(this._host, postData, false, function (err, response) {
+        this.httpPostJson(this._host, postData, false, (err, response) => {
             if (!err && response.result === 'ok' && response.contentId) {
                 callback && callback(null, response.contentId);
             } else {
