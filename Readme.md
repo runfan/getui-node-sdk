@@ -1,4 +1,6 @@
 # 说明
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/runfan/getui-node-sdk.svg)](https://greenkeeper.io/)
   Node wrapper for getui OS SDK API
   基于个推 nodejs sdk 4.0.1.0 进行 Promise 封装
 # api
